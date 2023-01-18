@@ -1,0 +1,15 @@
+,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17
+circuits,circuitId,circuitRef,name,location,country,lat,lng,alt,url,,,,,,,,,
+const,constructorId,constructorRef,name,nationality,url,,,,,,,,,,,,,
+const_rslts,constructorResultsId,raceId,constructorId,points,status,,,,,,,,,,,,,
+const_stnd,constructorStandingsId,raceId,constructorId,points,position,positionText,wins,,,,,,,,,,,
+drivers,driverId,driverRef,number,code,forename,surname,dob,nationality,url,,,,,,,,,
+driver_stnd,driverStandingsId,raceId,driverId,points,position,positionText,wins,,,,,,,,,,,
+lap_times,raceId,driverId,lap,position,time,milliseconds,,,,,,,,,,,,
+pit_stops,raceId,driverId,stop,lap,time,duration,milliseconds,,,,,,,,,,,
+quali,qualifyId,raceId,driverId,constructorId,number,position,q1,q2,q3,,,,,,,,,
+races,raceId,year,round,circuitId,name,date,time,url,fp1_date,fp1_time,fp2_date,fp2_time,fp3_date,fp3_time,quali_date,quali_time,sprint_date,sprint_time
+results,resultId,raceId,driverId,constructorId,number,grid,position,positionText,positionOrder,points,laps,time,milliseconds,fastestLap,rank,fastestLapTime,fastestLapSpeed,statusId
+seasons,year,url,,,,,,,,,,,,,,,,
+sprint_rslt,resultId,raceId,driverId,constructorId,number,grid,position,positionText,positionOrder,points,laps,time,milliseconds,fastestLap,fastestLapTime,statusId,,
+status,statusId,status,,,,,,,,,,,,,,,,
