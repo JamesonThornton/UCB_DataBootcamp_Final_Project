@@ -17,9 +17,9 @@ CREATE TABLE "quali" (
     "driverId" int   NOT NULL,
     "raceId" int   NOT NULL,
     "position" varchar   NOT NULL,
-    "q1" varchar   NOT NULL,
-    "q2" varchar   NOT NULL,
-    "q3" varchar   NOT NULL
+    "q1" varchar   NULL,
+    "q2" varchar   NULL,
+    "q3" varchar   NULL
 );
 
 CREATE TABLE "circuits" (
@@ -64,7 +64,7 @@ CREATE TABLE "results" (
     "points" varchar   NOT NULL,
     "laps" int   NOT NULL,
     "fastestLap" varchar   NOT NULL,
-    "rank" int   NOT NULL,
+    "rank" varchar   NOT NULL,
     "race_ms" varchar   NOT NULL,
     "fastestLapTime" varchar   NOT NULL,
     "fastestLapSpeed" varchar   NOT NULL,

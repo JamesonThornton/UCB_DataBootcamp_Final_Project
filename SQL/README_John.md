@@ -1,5 +1,7 @@
 # John Allen notes for Database process
 
+## Step 1
+
 - Created F1_stats Quick DBD layout.
 -  Assigned driverId as primary key
 -  Attempted to assign raceId as a secondary primary key however, the data in the raceId column in the quali table is not unique so cannot be used as a PK
@@ -121,3 +123,9 @@ After the database, tables and columns were created I began to import the data. 
 - The column quali_ms in the sprint_rslt table contains non int values of \N. The column type was changed from INT to varchar to support this.
 
 After running into the position column in the two tables above containing non int values I also proceeded to update the other tables with position columns in them to be varchar using the ALTER TABLE and then ALTER COLUMN commands.
+
+## Step 2
+
+- Added new column dob_formatted to the drivers table to allow for a year only dob field. This required me to create the column, update the new column with the existing data from the dob column and then strip all but the last 4 digits from the data using the below command:
+
+        update drivers set dob_formatted = SUBSTR(dob_formatted, LENGTH(dob_formatted) -3, 4);
