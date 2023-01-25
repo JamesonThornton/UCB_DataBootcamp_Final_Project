@@ -129,3 +129,122 @@ After running into the position column in the two tables above containing non in
 - Added new column dob_formatted to the drivers table to allow for a year only dob field. This required me to create the column, update the new column with the existing data from the dob column and then strip all but the last 4 digits from the data using the below command:
 
         update drivers set dob_formatted = SUBSTR(dob_formatted, LENGTH(dob_formatted) -3, 4);
+
+
+## Step 3
+After discovering an issue with using pandas to merge all available tables due to the data size maxing out memory, I decided to attempt a major table join in PostgreSQL. After some inital research I realized that PostgreSQL will not allow for multiple left joins of tables (or at least the version we are working with will not). I set out to create a process to do so with the below script:
+
+create table large_dataset_1 as select 
+		results_merged.*,
+		ds."dstnd_points",
+		ds."dstnd_position",
+		ds."wins"
+		
+from results_merged
+	left join driver_stnd ds
+	on ds."driverId" = results_merged."driverId"
+	where ds."raceId" = results_merged."raceId"
+
+
+
+
+create table large_dataset_2 as select
+		large_dataset_1.*,
+		lt."lapt_lap",
+		lt."lapt_position",
+		lt."lap_ms"
+		
+from large_dataset_1		
+left join lap_times lt
+	on lt."driverId" = large_dataset_1."driverId" 
+	where lt."raceId" = large_dataset_1."raceId";
+
+
+
+create table large_dataset_3 as select
+large_dataset_2.*,
+		ps."pit_lap",
+		ps."pit_ms"
+		
+from large_dataset_2	
+left join pit_stops ps
+	on ps."driverId" = large_dataset_2."driverId" 
+	where ps."raceId" = large_dataset_2."raceId";
+
+
+
+create table large_dataset_4 as select
+large_dataset_3.*,
+		q."quali_position"
+		
+from large_dataset_3		
+	left join quali q
+	on q."driverId" = large_dataset_3."driverId" 
+	where q."raceId" = large_dataset_3."raceId";
+	
+create table temp_merged_dataset as select
+large_dataset_4.*,
+		sr."sprslt_grid",
+		sr."sprslt_position",
+		sr."sprslt_points",
+		sr."sprslt_quali_ms",
+		sr."sprslt_fastestLap",
+		sr."sprslt_fastestlaptime"
+
+from large_dataset_4	
+	left join sprint_rslt sr
+	on sr."driverId" = large_dataset_4."driverId" 
+	where sr."raceId" = large_dataset_4."raceId";
+
+drop table large_dataset_1;
+drop table large_dataset_2;
+drop table large_dataset_3;
+drop table large_dataset_4;
+
+select * from temp_merged_dataset
+
+create table final_merged_table as select
+drivers.*,
+fmd."raceId",
+fmd."grid",
+fmd."results_position",
+fmd."positionText",
+fmd."positionOrder",
+fmd."results_points",
+fmd."results_laps",
+fmd."fastestLap",
+fmd."rank",
+fmd."race_ms",
+fmd."results_fastestlaptime",
+fmd."fastestLapSpeed",
+fmd."statusId",
+fmd."status",
+fmd."year",
+fmd."round",
+fmd."circuitId",
+fmd."races_name",
+fmd."date",
+fmd."dstnd_points",
+fmd."dstnd_position",
+fmd."wins",
+fmd."lapt_lap",
+fmd."lapt_position",
+fmd."lap_ms",
+fmd."pit_lap",
+fmd."pit_ms",
+fmd."quali_position",
+fmd."sprslt_grid",
+fmd."sprslt_position",
+fmd."sprslt_points",
+fmd."sprslt_quali_ms",
+fmd."sprslt_fastestLap",
+fmd."sprslt_fastestlaptime"
+
+from drivers	
+left join final_merged_dataset fmd
+	on fmd."driverId" = drivers."driverId"
+    
+drop temp_merged_dataset;
+
+
+This allowed us to join all 12 tables into one massive data set on the driverId and raceId thus weeding out unnecessary data and creating a mostly not null set of data to work with in the machine model.
