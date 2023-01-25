@@ -16,6 +16,20 @@
 * Preparing for deeper ETL process in week 2 to get solid merged df for ml model.
 
 ## Week 2
+>Class 2.
+* Discussed and clarified issues with working tree in repository
+* Agreed on presentation tool (prezi)
+* Reviewed the database in postgres and its ERD
+* Clarified the overarching "question" as more open-ended with clustering (not predictions), but to include investigating the clusters
+* Looked at a few more mockups of clustering algorithms (with pca, with dendogram, with/without various modifications to features)
+>Looking forward.
+* Decided to meet up midweek to work in google colab on the pipeline that:
+    a. pulls directly from database tables (rather than other csv folders)
+    b. uses tables with distinct column names where information is different but names the same in different tables
+    c. can merge/join tables without significant loss of rows (i.e. left or outer instead of inner)
+    d. possibly adds to existing tables by merging in other reference csvs that were not formerly included from the flat files
+>Class 3.
+
 
 >Class 3.
 * Discussed and clarified issues with working tree in repository
