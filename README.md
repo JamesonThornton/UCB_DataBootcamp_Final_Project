@@ -46,6 +46,7 @@ Initially, the team met to observe the raw data and draw possible project outlin
 <br/>
 The initial phase of the analysis involved implementing ETL (Extract, Transform, Load) procedures using tools such as pandas, PostgreSQL, and Amazon RDS. The process began by extracting data from the Kaggle dataset, subsequently, it was cleaned and transformed using the capabilities of pandas. The cleaned data was then exported as separate data frames in CSV format. These data frames were then imported into tables within Amazon RDS, utilizing PostgreSQL to ensure data integrity and ease of access. Careful execution of each task was crucial to guarantee that the data sets were accurate, dependable, and readily available through the database.
 
+
 ## Unsupervised Machine Learning Models
 
 <br/>
