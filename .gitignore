@@ -1,4 +1,5 @@
 # Adding config.py file.
+.gitignore
 config.py
 config.js
 
