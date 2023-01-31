@@ -248,3 +248,11 @@ drop temp_merged_dataset;
 
 
 This allowed us to join all 12 tables into one massive data set on the driverId and raceId thus weeding out unnecessary data and creating a mostly not null set of data to work with in the machine model.
+
+## Step 4
+
+We determined there were too many lines being affected adversly by the pitstops and sprint tables so a decision was made to drop those two and make a new combined dataset of everything but those. This allowed us to keep 449,489 lines of data instead of dropping down to the 16,888 that combining those tables into the datset output.
+
+## Step 5
+
+Added a new table from the original drivers.csv that had the driverId, forename, surname and then a combined_name column concatinating the two. This will allow us to reference the drivers names in the data based of the driverId PK. This was then outerjoined into the large dataset for future use.
