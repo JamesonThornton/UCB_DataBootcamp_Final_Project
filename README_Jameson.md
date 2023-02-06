@@ -43,8 +43,24 @@ some key learnings:
  - a machine learning clustering model will assign a class to each record/row of data; so in our model if we want to classify drivers, but each driver has many races or laps we may need to aggregate these records into a singular record for each driver where the features represent the results (such as count of wins, or count of finishing positions, etc.)
 
 
+## Data Aggregations
+below are explanations of how the raw lap level data was further aggregated to higher levels of abstractions. Namely the levels were Race, Season (or year), and entire career per driver. 
 
+### Race Level
+ this aggregation level was relatively simple since the originating data contained the raw details needed. the step required was simply to create a subset of the features (remove lap times, lap position, and lap number) and drop duplicates from the subsequent dataframe. this works because the other features (from results table for example) are already at a race level aggregation (e.g. they are repeated for every lap in the final merged table). 
+### Season Level
+ season level is a little more tricky. this does require true aggregation of the underlying race level details derived above. however, it is not quite as simple as a summation, max, count, or even unique count of data features. in some cases there is additional logic to be applied given the way in which the data is represented.
 
+ for season level aggregation achieved by pivot_table in pandas with driver and year as the indices:
+  - max of points, wins for each year/driver cominbation
+  - sum of laps
+ we take a unique count of the results_psotions and quali_position for each driver/year combination
+  - take a subset of the dataframe based on driver and year
+    - take a value count of each of the results and qualifying positions
+    - loop through these and assign each positional value to a new feature columns representing each position (1-25)
+
+### Career Level
+This aggegation is actually the simplest; it is essentially a summation of the seasonal data. we take a sum of each column from the season data frame where the driver is the driver of interest. we paste this resulting single row of data into a career level data frame with the driver as the index. 
 
 ## Data Sources
 static data set: (https://www.kaggle.com/datasets/rohanrao/formula-1-world-championship-1950-2020)  
