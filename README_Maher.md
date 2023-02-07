@@ -52,3 +52,16 @@ As a group, we:
  - Created a new 'Class' column to dictate which class each data clustered to
  - Printed how many entries belonged to a specific class (class 0, 1, or 2)
  - Created a 3d-scatter plot to visualize our data clusters using an x-axis of 'results_position', a y-axis of 'year', and a z-axis of 'fastestLapSpeed'
+
+
+### Aggregations
+ 
+ To dive deeper into our unsupervised machine learning clustering, we decided to transform our dataset and cluster 4 total aggregations. We clustered drivers based on:
+ - Lap times
+ - Races
+ - Season
+ - Career
+
+ Created a PCA table in excel to list each aggregation's most important feature, displayed each 3d-scatter plot with labels for visualization.
+
+    
