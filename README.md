@@ -1,11 +1,12 @@
 
+
 # Machine Learning with Formula 1 Driver Info Analysis
 Using ETL, Unsupervised Machine Learning, and creating a visualization dashboard of data derived from Formula 1 Driver information to explore phenomenas within Formula 1.  
 
 <br/>
 <p align="center">Jameson Thornton, Varun Yalaka, John Allen, Maher Abdallah, Jacob Voyce, and Tyrone Fraley<br/>
 UC Berkley Extension<br/>
-Jan 20, 2023<br/>
+Feb 7, 2023<br/>
 <p/>
 
 <br/>
@@ -52,7 +53,35 @@ The initial phase of the analysis involved implementing ETL (Extract, Transform,
 
 <br/>
 
-The mission for this project was to employ unsubervised machine learning models to classify Formula One drivers established amongst several features of driver, constructor, and race data. To effectively execute the team's objective, the team utilized Google Colab as the primary base for developing and implementing the models. With the use of K-means and Hierarchal Clustering Analysis (HCA) the team could cluster the data and reveal patterns based on driver performance and race results. K-means will be usefull in this process due to it's ability to scale expansive data sets, (Google, 2022). Hierarchical clustering (HCA) allows an comprehensible data clusterization that produces a dendragram to help understand the large concepts within the data, (Dotactiv Team, 2020). Utilizing Google Colab, the team could collaborate and share their work effortlessly, while maintaining access to powerful tools and resources for machine learning. The goal of this project was to expand knowledge surrounding different aspects, experiences, or performances of Formula One drivers by recognizing patterns and trends from the data which would then be classified into various clusters with the help of K-means and HCA algorithms.
+The objective of this project was to use unsupervised machine learning models to classify Formula One drivers based on various features of driver, constructor, and race data. The team utilized Google Colab as the primary platform for developing and implementing the models, and employed K-means and Hierarchal Clustering Analysis (HCA) algorithms to cluster the data and uncover patterns based on driver performance and race results. K-means was chosen for its ability to handle large data sets, (Google, 2022), while HCA provides a clear data clustering method that creates a dendrogram to help understand the main concepts within the data, (Dotactiv Team, 2020). The team utilized Google Colab to collaborate and share their work easily while having access to powerful tools and resources for machine learning. The goal was to gain new insights into different aspects, experiences, or performances of Formula One drivers by recognizing patterns and trends in the data. The use of K-means and HCA algorithms helped to classify the data into different clusters, and the team also analyzed the elbow curve to determine the optimal number of clusters. Additionally, the team used PCA to support their analysis. Ultimately, the team faced a challenge where the clusters produced by K-means and HCA were closely grouped together, hindering their ability to classify and comprehend the data effectively, which prompted them to also consider using supervised machine learning methods.
+
+<br/>
+<p align="center">
+  <img width="460" height="200" src="Images/PCA.png">
+</p>
+<br/>
+<br/>
+<p align="center">
+  <img width="460" height="200" src="Images/Clusters.png">
+</p>
+<br/>
+
+## Supervised Machine Learning Models
+
+<br/>
+
+The team launched 4 various supervised machine learning models based on the Formula One data set to analyze driver performance. The models were Linear Regression, Neural Network, Random Forest Regressor, and Random Forest Classifier. From the models the team experimented with different parameters for each model to discover the best results. The results explained that the Neural Network Classifier had the highest precision score of 0.76 while Linear regression had the lowest precision score of 0.52. The precision scores for Random Forest Regressor and Random Forest Classifier were 0.48 and 0.52. It should be noted that the data used left out 2022 data so that we could then discover if the models could predict some 2022 results. This would be later done in Tableau for cross comparison. According to Gad (N.D.), "the precision is calculated as the ratio between the number of Positive samples correctly classified to the total number of samples classified as Positive (either correctly or incorrectly)."
+
+<br/>
+<p align="center">
+  <img width="460" height="200" src="Images/Scores.png">
+</p>
+<br/>
+<br/>
+<p align="center">
+  <img width="460" height="200" src="Images/SupervisedModels.png">
+</p>
+<br/>
 
 ## Visualization in Tableau
 
@@ -60,17 +89,37 @@ The mission for this project was to employ unsubervised machine learning models 
 
 The team optimized the data in the outer_join_csv for Tableau visualization by streamlining the rows and adding new columns through pandas. The new columns added were driver_country, race_country, avg_lap_time, winner_name, and win_ratio. To minimize duplicate wins in Tableau graphs, the team dropped the lapt_lap and lapt_position columns and transformed the lap_ms column into an average lap time per driver, per race and year. This new column was named avg_lap_time. The driver_country and race_country columns enabled the team to create choropleth maps, which display the winning_name, year, and race_name of a race when the user hovers their cursor over a specific country. These modifications ensured correct visualization of the data in Tableau. The modified data frame would then be exported as a csv called VisualizationDF.
 
-For vizualization purposes, the team utilized Tableau in tandem with Python to develop an HCA model to display the results from the Formula One drivers set. Visualizing the results required the team to use several key features within Tableau, such features as: Scatter Plots, Heat Maps, bar charts, Choropleth Maps, and Cluster Maps. Using these visualizations gave the team the capability of recognizing patterns and trends in the data, and gain insights into different aspects, experiences of performances of the Formula One drivers. For example, the team developed scatter plots to visualize the interrelationship between different features, such as race results and driver performance, and heat maps to shed light on the density of data points in different sections of the scatter plot. The team created bar charts to showcase the average wins per driver, total wins per driver, drivers' qualifying position and results, and points earned by drivers over a season. The relationship between the numerous features was visualized using parallel coordinates, and choropleth maps were used to depict the geographic distribution of the data. The final step was for the team to develop cluster maps to visualize the results of the HCA model and discover patterns within the data through displaying how drivers gained classification based on various features. Such usage of Tableau and Python paved the way for the team to create a powerful comprehensible story through visualization to reveal exciting awareness of phenomenas in the Formula One driver data.
+The team utilized Tableau in tandem with Python to develop an HCA model to display the results from the Formula One drivers set. Visualizing the results required the team to use several key features within Tableau, such features as: heat maps, bar charts, and geographical maps. Using these visualizations gave the team the capability of recognizing patterns and trends in the data, and gain insights into different aspects, experiences of performances of the Formula One drivers. For example, the team created bar charts to showcase the average wins per driver, total wins per driver, drivers' qualifying position and results, and points earned by drivers over a season. In addition, a geographical map was created with pop up data capabilities to show the year of a race, the country, the race name, and the winning driver of that race. The graphs, excluding the heat map, were equipped with filters, enabling the end-user to manipulate the data of Formula One and delve deeper into the insights.
+
+To make the results accessible, the Tableau dashboard was then converted into an HTML file, which was displayed on a GitHub web page, providing an easy way for users to view the results. Such usage of Tableau and Python paved the way for the team to create a powerful comprehensible story through visualization to reveal exciting awareness of phenomenas in the Formula One driver data.
+
+<br/>
+<p align="center">
+  <img width="460" height="200" src="Images/F1_Dashboard.png">
+</p>
+<br/>
 
 
 ## Contributions to Research
 
+<br/> 
 
+In this study, we conducted an analysis of Formula One race results using unsupervised and supervised machine learning techniques. Our findings suggest that there is room for further improvement in the development of an unsupervised model for Formula One race predictions. Our research could explore metrics that could contribute to a better fit model, as well as explore other factors beyond driver win capabilities, such as crash reasons and performance parts.
+
+Our unsupervised analysis showed that the data is "clumped" together when we look at the immediate information about a race, such as the number of laps and overall performance elements like fastest lap speed and position. However, when we consider a broader perspective of entire seasons and careers, we see the data start to diverge across the number of laps completed and collection of points. This suggests that drivers' abilities may come down to finishing races and accumulating points over the long haul, rather than just their ability to achieve a fast lap.
+
+<br/>
 
 ## Results
 
+<br/>
+
+While we were unable to use an unsupervised model to classify drivers, our project was successful in the supervised machine learning aspect. We developed a Neural Network Model and Tableau dashboard that allowed us to cross-examine Formula One 2022 winners. This allowed us to predict driver performance with some degree of accuracy.
+
 
 ## Summary
+
+The aim of this study was to investigate the potential of machine learning algorithms to predict Formula One race results. Our results showed that while there is still room for improvement in the development of an unsupervised model, our supervised machine learning approach was successful in predicting driver performance to a certain extent.
 
 
 
@@ -80,7 +129,9 @@ static data set: (https://www.kaggle.com/datasets/rohanrao/formula-1-world-champ
 
 
 <br/>
+
 ## References:
+
 <br/>
 
 ESPN. (N.D.). A timeline of Formula One. http://en.espn.co.uk/f1/motorsport/story/3836.html
@@ -90,3 +141,4 @@ Faulkner, S. (2017). Data Saturation. https://doi.org/10.1002/9781118901731.iecr
 Steeger, D. (N.D.). Machine learning: How much data do learning methods require?. nordantech.com. https://www.nordantech.com/en/blog/data-science/machine-learning#:~:text=But%20the%20rule%20is%3A%20You,feeling%20for%20the%20data%20structure.
 Google. (2022). k-Means Advantages and Disadvantages. https://developers.google.com/machine-learning/clustering/algorithm/advantages-disadvantages.
 Dotactiv Team. (2020).  Is Hierarcical Clusturing Worth Pursuing?. https://www.dotactiv.com/blog/is-hierarchical-clustering-worth-pursuing#:~:text=The%20advantage%20of%20hierarchical%20clustering,the%20groups%20in%20your%20data. 
+Gad, A. (N.D.). Evaluating Deep Learning Models: The Confusion Matrix, Accuracy, Precision, and Recall. Paperspace Blog. https://blog.paperspace.com/deep-learning-metrics-precision-recall-accuracy/#:~:text=The%20precision%20is%20calculated%20as,(either%20correctly%20or%20incorrectly).
