@@ -31,7 +31,7 @@ Initially, the team met to observe the raw data and draw possible project outlin
 * Project Roles:
     * ETL: Jacob Voyce and Jameson Thornton
     * Database: John Allen
-    * Unsupervised Machine Learning: Varun Yalaka and Maher Abdallah
+    * Unsupervised/Supervised Machine Learning: Varun Yalaka and Maher Abdallah
     * Visualization: Tyrone Fraley, Jacob Voyce, and John Allen
     * Project Manager: John Allen
     * Technical Written Report: Tyrone Fraley 
@@ -119,7 +119,7 @@ While we were unable to use an unsupervised model to classify drivers, our proje
 
 ## Summary
 
-The aim of this study was to investigate the potential of machine learning algorithms to predict Formula One race results. Our results showed that while there is still room for improvement in the development of an unsupervised model, our supervised machine learning approach was successful in predicting driver performance to a certain extent.
+The aim of this study was to investigate the potential of machine learning algorithms to predict Formula One race results. Our results showed that while there is still room for improvement in the development of an unsupervised model, our supervised machine learning approach was successful in predicting driver performance to a certain extent. For the final presentation we used a Tableau interactive dashboard and a presentation via Prezi (https://prezi.com/view/vmcXvNsfTz1uqcI8mhWS/).
 
 
 
