@@ -11,7 +11,7 @@ Feb 7, 2023<br/>
 
 <br/>
 <p align="center">
-  <img width="460" height="200" src="Images/formulaonedatapoints.jpeg">
+  <img width="460" height="200" src="Resources/Images/formulaonedatapoints.jpeg">
 </p>
 <br/>
 
@@ -57,12 +57,12 @@ The objective of this project was to use unsupervised machine learning models to
 
 <br/>
 <p align="center">
-  <img width="460" height="200" src="Images/PCA.png">
+  <img width="460" height="200" src="Resources/Images/PCA.png">
 </p>
 <br/>
 <br/>
 <p align="center">
-  <img width="560" height="300" src="Images/Clusters.png">
+  <img width="560" height="300" src="Resources/Images/Clusters.png">
 </p>
 <br/>
 
@@ -74,12 +74,12 @@ The team launched 4 various supervised machine learning models based on the Form
 
 <br/>
 <p align="center">
-  <img width="460" height="500" src="Images/Scores.png">
+  <img width="460" height="500" src="Resources/Images/Scores.png">
 </p>
 <br/>
 <br/>
 <p align="center">
-  <img width="560" height="300" src="Images/SupervisedModels.png">
+  <img width="560" height="300" src="Resources/Images/SupervisedModels.png">
 </p>
 <br/>
 
@@ -95,7 +95,7 @@ To make the results accessible, the Tableau dashboard was then converted into an
 
 <br/>
 <p align="center">
-  <img width="860" height="550" src="Images/F1_Dashboard.png">
+  <img width="860" height="550" src="Resources/Images/F1_Dashboard.png">
 </p>
 <br/>
 
